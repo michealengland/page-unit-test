@@ -1,0 +1,23 @@
+{
+  "name": "page-unit-test",
+  "version": "0.0.1",
+  "description": "Plugin build scripts.",
+  "main": "build/index.js",
+  "scripts": {
+    "start": "wp-scripts start",
+    "build": "wp-scripts build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michealengland/page-unit-test.git"
+  },
+  "author": "Mike England",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/michealengland/page-unit-test/issues"
+  },
+  "homepage": "https://github.com/michealengland/page-unit-test#readme",
+  "devDependencies": {
+    "@wordpress/scripts": "3.3.0"
+  }
+}
