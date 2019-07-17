@@ -18,6 +18,10 @@
   },
   "homepage": "https://github.com/michealengland/page-unit-test#readme",
   "devDependencies": {
+    "@wordpress/eslint-plugin": "^2.3.0",
     "@wordpress/scripts": "3.3.0"
+  },
+  "dependencies": {
+    "lodash": "^4.17.14"
   }
 }
