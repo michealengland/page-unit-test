@@ -20,7 +20,6 @@ function gput_create_scaffolding_page() {
 	$scaffold_page = array(
 		'post_title'    => $title,
 		'post_name'     => $slug,
-		'post_content'  => '',
 		'post_status'   => 'publish',
 		'post_type'     => 'page',
 		'post_author'   => 1,

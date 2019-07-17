@@ -80,39 +80,70 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _templates_template_example__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./templates/template-example */ "./src/templates/template-example/index.js");
-/* harmony import */ var _templates_template_example__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_templates_template_example__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _templates__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./templates */ "./src/templates/index.js");
+/**
+ * Internal dependencies
+ */
 
 
 /***/ }),
 
-/***/ "./src/templates/template-example/index.js":
-/*!*************************************************!*\
-  !*** ./src/templates/template-example/index.js ***!
-  \*************************************************/
+/***/ "./src/templates/index.js":
+/*!********************************!*\
+  !*** ./src/templates/index.js ***!
+  \********************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+
+var __ = wp.i18n.__;
+var registerBlockType = wp.blocks.registerBlockType;
+var InnerBlocks = wp.editor.InnerBlocks;
+registerBlockType('gput/scaffolding', {
+  title: 'GPUT Scaffolding',
+  icon: 'align-left',
+  category: 'layout',
+  attributes: {},
+  edit: function edit(_ref) {
+    var className = _ref.className;
+    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+      className: className
+    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(InnerBlocks, {
+      layouts: [{
+        name: 'inner',
+        label: __('Inner Content', 'gput'),
+        icon: 'columns'
+      }],
+      templateLock: 'all',
+      template: [// List each block.
+      ['core/heading', {
+        placeholder: __('Heading 2 Example', 'gput'),
+        default: __('Heading 2 Value', 'gput')
+      }]]
+    }));
+  },
+  save: function save(_ref2) {
+    var className = _ref2.className;
+    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+      className: className
+    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(InnerBlocks.Content, null));
+  }
+});
+
+/***/ }),
+
+/***/ "@wordpress/element":
+/*!******************************************!*\
+  !*** external {"this":["wp","element"]} ***!
+  \******************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-// Example from https://developer.wordpress.org/block-editor/developers/block-api/block-templates/
-var el = wp.element.createElement;
-var registerBlockType = wp.blocks.registerBlockType;
-var InnerBlocks = wp.editor.InnerBlocks;
-var BLOCKS_TEMPLATE = [['core/image', {}], ['core/paragraph', {
-  placeholder: 'Image Details'
-}]];
-registerBlockType('gput/test-template', {
-  title: 'GPUT Test Template',
-  category: 'widgets',
-  edit: function edit(props) {
-    return el(InnerBlocks, {
-      template: BLOCKS_TEMPLATE,
-      templateLock: false
-    });
-  },
-  save: function save(props) {
-    return el(InnerBlocks.Content, {});
-  }
-});
+(function() { module.exports = this["wp"]["element"]; }());
 
 /***/ })
 

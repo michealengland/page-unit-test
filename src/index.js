@@ -1,1 +1,4 @@
-import './templates/template-example';
+/**
+ * Internal dependencies
+ */
+import './templates';

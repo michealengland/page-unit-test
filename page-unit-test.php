@@ -24,6 +24,8 @@ include_once( plugin_dir_path( __FILE__ ) . '/includes/notifications.php' );
 // Generate scaffolding page.
 include_once( plugin_dir_path( __FILE__ ) . '/includes/generate-scaffold.php' );
 
+// Generate scaffolding page.
+include_once( plugin_dir_path( __FILE__ ) . '/includes/template.php' );
 
 /**
  * Delete generated pages when plugin is deactivated.
