@@ -7,8 +7,6 @@ registerBlockType( 'gput/scaffolding', {
 	title: 'GPUT Scaffolding',
 	icon: 'align-left',
 	category: 'layout',
-	attributes: {
-	},
 	edit( { className } ) {
 		return (
 			<div className={ className }>
@@ -23,11 +21,7 @@ registerBlockType( 'gput/scaffolding', {
 					templateLock={ 'all' }
 					template={
 						[
-							// List each block.
-							[ 'core/heading', {
-								placeholder: __( 'Heading 2 Example', 'gput' ),
-								default: __( 'Heading 2 Value', 'gput' ),
-							} ],
+							[ 'gput/swatch' ],
 						]
 					}
 				/>

@@ -19,4 +19,3 @@ function gput_setup_page_template() {
 	$post_type_object->template_lock = 'all';
 }
 add_action( 'init', 'gput_setup_page_template' );
-

@@ -81,9 +81,11 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _templates__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./templates */ "./src/templates/index.js");
+/* harmony import */ var _templates_swatches__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./templates/swatches */ "./src/templates/swatches/index.js");
 /**
  * Internal dependencies
  */
+
 
 
 /***/ }),
@@ -107,7 +109,8 @@ registerBlockType('gput/scaffolding', {
   title: 'GPUT Scaffolding',
   icon: 'align-left',
   category: 'layout',
-  attributes: {},
+  // attributes: {
+  // },
   edit: function edit(_ref) {
     var className = _ref.className;
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
@@ -120,9 +123,8 @@ registerBlockType('gput/scaffolding', {
       }],
       templateLock: 'all',
       template: [// List each block.
-      ['core/heading', {
-        placeholder: __('Heading 2 Example', 'gput'),
-        default: __('Heading 2 Value', 'gput')
+      ['gput/swatch'], ['core/heading', {
+        placeholder: __('Heading 2 Example', 'gput')
       }]]
     }));
   },
@@ -131,6 +133,66 @@ registerBlockType('gput/scaffolding', {
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
       className: className
     }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(InnerBlocks.Content, null));
+  }
+});
+
+/***/ }),
+
+/***/ "./src/templates/swatches/index.js":
+/*!*****************************************!*\
+  !*** ./src/templates/swatches/index.js ***!
+  \*****************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+
+var __ = wp.i18n.__;
+var registerBlockType = wp.blocks.registerBlockType;
+var select = wp.data.select; // Get theme color data.
+
+var themeColors = select('core/editor').getEditorSettings().colors;
+registerBlockType('gput/swatch', {
+  title: __('Theme Swatches'),
+  description: __('Display registered swatches.'),
+  category: __('widgets'),
+  attributes: {
+    swatches: {
+      type: 'string',
+      source: 'html',
+      selector: 'div'
+    }
+  },
+  edit: function edit(_ref) {
+    var className = _ref.className;
+    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("ul", {
+      className: className
+    }, themeColors.map(function (value, index) {
+      return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("li", {
+        className: value.slug,
+        key: index,
+        style: {
+          backgroundColor: value.color
+        }
+      }, value.name);
+    }));
+  },
+  save: function save(_ref2) {
+    var className = _ref2.className;
+    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("ul", {
+      className: className
+    }, themeColors.map(function (value, index) {
+      return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("li", {
+        className: value.slug,
+        key: index,
+        style: {
+          backgroundColor: value.color
+        }
+      }, value.name);
+    }));
   }
 });
 
